@@ -16,8 +16,9 @@ COPY ./ /app/
 
 ARG VERSION
 
-# Install dependencies and build PHAR
-RUN composer install --no-dev --quiet && /app/bin/build -v$VERSION \
+# Install dependencies and build PHAR, the "v" in the version (e.g. "v6.9.4")
+# will provide the "v" arg and its value directly
+RUN composer install --no-dev --quiet && /app/bin/build -$VERSION \
     # The file should exist
     && ls -lh /app/deployer.phar
 
