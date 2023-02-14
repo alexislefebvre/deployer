@@ -28,4 +28,4 @@ jobs:
           context: "{{defaultContext}}:./"
           push: true
           build-args: VERSION=${{ github.ref_name }}
-          tags: ghcr.io/deployphp/deployer:${{ github.ref_name }}
+          tags: ghcr.io/alexislefebvre/deployer:${{ github.ref_name }}
