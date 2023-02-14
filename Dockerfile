@@ -17,7 +17,9 @@ COPY ./ /app/
 ARG VERSION
 
 # Install dependencies and build PHAR
-RUN composer install --no-dev --quiet && /app/bin/build -v$VERSION
+RUN composer install --no-dev --quiet && /app/bin/build -v$VERSION \
+    # The file should exist
+    && ls -lh /app/deployer.phar
 
 
 ## Create the final image ##
